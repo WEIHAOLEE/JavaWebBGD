@@ -14,7 +14,7 @@
 		Class.forName("com.mysql.jdbc.Driver");// 加载驱动
 		String url = "jdbc:mysql://localhost:3306/web";
 		Connection con = DriverManager.getConnection(url, "root", "12345678");  //建立链接
-		String sql = "select * from user where id= ? and password= ?";
+		String sql = "select * from user where name= ? and password= ?";
 		PreparedStatement pstm = con.prepareStatement(sql); //创建语句对象
 		pstm.setString(1, userName); // 设置参数
 		pstm.setString(2, password);

@@ -21,12 +21,14 @@
 			pstm.setString(1, userName); // 设置参数
 			pstm.setString(2, password);
 			pstm.executeUpdate();//更新
+			response.sendRedirect("AdminLTE/pages/examples/login.html");
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	
 	%>
+	
 
 </body>
 </html>
