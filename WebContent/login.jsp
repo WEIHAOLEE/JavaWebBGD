@@ -21,6 +21,7 @@
 		ResultSet rs = pstm.executeQuery(); //数据库查询操作
 		if(rs.next()){
 			out.println("登陆成功");
+			response.sendRedirect("AdminLTE/pages/examples/main.html");
 		}else{
 			out.println("登陆失败");
 		}
