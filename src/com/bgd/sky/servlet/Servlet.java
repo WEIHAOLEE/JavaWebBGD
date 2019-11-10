@@ -9,6 +9,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println("从form表单获取的内容是：Id: " + id + "用户名：" + username + "密码：" + password + "\n");
+        response.setCharacterEncoding("GBK");
         PrintWriter out = response.getWriter();
         out.println("从form表单获取的内容是：Id: " + id + "用户名：" + username + "密码：" + password);
 
