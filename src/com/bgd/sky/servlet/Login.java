@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
             if (DAOFactory.getUserDAOInstance().find(user)){
                 request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
             }else{
-                request.getRequestDispatcher("AdminLTE/pages/examples/login").forward(request, response);
+                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
