@@ -21,9 +21,11 @@ public class Login extends HttpServlet {
 
         try {
             if (DAOFactory.getUserDAOInstance().find(user)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
-                request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
+                response.sendRedirect("AdminLTE/index.html");
+//                request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
             }else{
-                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
+                response.sendRedirect("AdminLTE/pages/examples/login.html");
+//                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
