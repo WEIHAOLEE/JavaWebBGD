@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
+        String username = request.getParameter("userName");
         String password =request.getParameter("password");
 
         // 通过javabean
@@ -20,7 +20,7 @@ public class Login extends HttpServlet {
         user.setPassword(password);
 
         try {
-            if (DAOFactory.getUserDAOInstance().find(user)){
+            if (DAOFactory.getUserDAOInstance().find(user)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
                 request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
             }else{
                 request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
