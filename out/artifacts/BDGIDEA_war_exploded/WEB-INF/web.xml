@@ -8,8 +8,16 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>com.bgd.sky.servlet.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.Register</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/registerServlet</url-pattern>
     </servlet-mapping>
 </web-app>
