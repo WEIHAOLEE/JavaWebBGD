@@ -40,7 +40,15 @@ public class UserDapImpl implements UserDAO {
     }
 
 
+    @Override
+    public boolean update(User user) throws Exception {
+        return false;
+    }
 
+    @Override
+    public boolean delete(User user) throws Exception {
+        return false;
+    }
 
     @Override
     public boolean insert(User user) throws Exception {

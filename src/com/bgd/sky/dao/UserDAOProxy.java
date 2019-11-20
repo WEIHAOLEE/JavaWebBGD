@@ -43,4 +43,14 @@ public class UserDAOProxy implements UserDAO {
         this.dbc.close();
         return flag;
     }
+
+    @Override
+    public boolean update(User user) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean delete(User user) throws Exception {
+        return false;
+    }
 }
