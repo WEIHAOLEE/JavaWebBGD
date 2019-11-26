@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.bgd.sky.foctory.DAOFactory" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="com.bgd.sky.bean.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -365,18 +369,80 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <section class="content-header">
-            <h1>
-                欢迎登陆学生管理系统
-                <small>首页｜控制台</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
-                <!--        <li class="active">Dashboard</li>-->
-            </ol>
-        </section>
-    </div>
 
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- /.box -->
+
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">学生信息</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <%-- 表头 --%>
+                                <thead>
+                                <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>班级</th>
+                                </tr>
+                                </thead>
+
+
+                                <tbody>
+
+
+
+                                <%
+                                    try {
+                                        List stuList = DAOFactory.getUserDAOInstance().stuList(); //查询数据表user信息
+                                        Iterator iter = stuList.iterator();
+                                        while (iter.hasNext()){
+                                            Student student = (Student)iter.next();
+                                %>
+
+                                            <tr>
+                                                <td><%=student.getSid()%></td>
+                                                <td><%=student.getSname()%></td>
+                                                <td><%=student.getSage()%></td>
+                                                <td><%=student.getSclass()%></td>
+                                            </tr>
+
+
+                                <%
+                                        }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+
+
+                                %>
+
+                                </tbody>
+
+                                    <%-- 表尾 --%>
+                                <tfoot>
+                                <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>班级</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
     <!-- /.row (main row) -->
 
     </section>
@@ -409,6 +475,31 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false
+        })
+    })
+</script>
+
 <script src="bower_components/raphael/raphael.min.js"></script>
 <script src="bower_components/morris.js/morris.min.js"></script>
 <!-- Sparkline -->
@@ -425,15 +516,9 @@
 <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+
 </body>
 </html>

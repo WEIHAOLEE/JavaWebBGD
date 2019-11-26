@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: weihaolee
-  Date: 2019/11/20
-  Time: 5:05 下午
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -51,7 +44,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="index.jsp" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -80,7 +73,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/defaultUser.png" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -266,7 +259,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="dist/img/defaultUser.png" class="user-image" alt="User Image">
                             <span class="hidden-xs">
                                 <%
                                     String username = (String) request.getSession().getAttribute("username");
@@ -277,7 +270,7 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="dist/img/defaultUser.png" class="img-circle" alt="User Image">
 
                                 <p>
                                     <%
@@ -304,10 +297,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">个人资料</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="pages/examples/login.html" class="btn btn-default btn-flat">登出</a>
                                 </div>
                             </li>
                         </ul>
@@ -323,7 +316,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="dist/img/defaultUser.png" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p class="username">
@@ -359,7 +352,7 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> 查询</a></li>
+                        <li><a href="searchStudent.jsp"><i class="fa fa-circle-o"></i> 查询学生信息</a></li>
                         <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> 添加</a></li>
                         <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> 修改</a></li>
                         <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> 删除</a></li>
@@ -372,99 +365,18 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
                 欢迎登陆学生管理系统
                 <small>首页｜控制台</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
                 <!--        <li class="active">Dashboard</li>-->
             </ol>
         </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>150</h3>
-
-                            <p>New Orders</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                            <p>Bounce Rate</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-yellow">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
-            <!-- /.row -->
-
-
-
-
-
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
-
-
-
-        </section>
-        <!-- right col -->
     </div>
+
     <!-- /.row (main row) -->
 
     </section>

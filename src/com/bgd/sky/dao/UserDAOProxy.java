@@ -15,9 +15,10 @@ public class UserDAOProxy implements UserDAO {
         return this.dao.list();
     }
 
-
-
-
+    @Override
+    public List stuList() {
+        return this.dao.stuList();
+    }
 
     public UserDAOProxy(){
         try {

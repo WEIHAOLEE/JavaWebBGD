@@ -13,4 +13,6 @@ public interface UserDAO {
     public boolean delete(User user) throws Exception;
     public List list();
 
+    public List stuList();
+
 }
