@@ -442,34 +442,34 @@
                         <div class="box-header">
                             <h3 class="box-title">添加学生</h3>
                         </div>
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="../addStu">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="sid" class="col-sm-2 control-label">学籍号</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sid" placeholder="学籍号">
+                                        <input type="number" class="form-control" id="sid" placeholder="学籍号" name="sid">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="sname" class="col-sm-2 control-label">姓名</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="sname" placeholder="姓名">
+                                        <input type="text" class="form-control" id="sname" placeholder="姓名" name="sname">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="sage" class="col-sm-2 control-label">年龄</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sage" placeholder="年龄">
+                                        <input type="number" class="form-control" id="sage" placeholder="年龄" name="sage">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="sclass" class="col-sm-2 control-label">班级</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sclass" placeholder="班级">
+                                        <input type="number" class="form-control" id="sclass" placeholder="班级" name="sclass">
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,6 @@
 package com.bgd.sky.dao;
 
+import com.bgd.sky.bean.Student;
 import com.bgd.sky.bean.User;
 import com.bgd.sky.dataBase.DBC;
 
@@ -15,10 +16,6 @@ public class UserDAOProxy implements UserDAO {
         return this.dao.list();
     }
 
-    @Override
-    public List stuList() {
-        return this.dao.stuList();
-    }
 
     public UserDAOProxy(){
         try {
@@ -53,5 +50,31 @@ public class UserDAOProxy implements UserDAO {
     @Override
     public boolean delete(User user) throws Exception {
         return false;
+    }
+
+
+    //Student
+
+    @Override
+    public boolean addStu(Student student) throws Exception {
+        boolean flag;
+        flag = this.dao.addStu(student);
+        this.dbc.close();
+        return flag;
+    }
+
+    @Override
+    public boolean updateStu(Student student) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean delStu(Student student) throws Exception {
+        return false;
+    }
+
+    @Override
+    public List stuList() {
+        return this.dao.stuList();
     }
 }

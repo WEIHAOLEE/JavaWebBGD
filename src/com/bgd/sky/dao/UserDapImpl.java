@@ -41,28 +41,6 @@ public class UserDapImpl implements UserDAO {
     }
 
 
-    @Override
-    public List stuList() {
-        List stuList = null;
-        try {
-            String sql = "select * from web.student";
-            pstm = con.prepareStatement(sql);
-            ResultSet rs = pstm.executeQuery();
-            stuList = new ArrayList();
-
-            while (rs.next()){
-                Student student = new Student();
-                student.setSid(rs.getString(1));
-                student.setSname(rs.getString(2));
-                student.setSage(rs.getString(3));
-                student.setSclass(rs.getString(4));
-                stuList.add(student);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return stuList;
-    }
 
     @Override
     public boolean update(User user) throws Exception {
@@ -113,4 +91,63 @@ public class UserDapImpl implements UserDAO {
         return flag;
 
     }
+
+
+
+    // Student
+    @Override
+    public boolean addStu(Student student) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "insert into web.student(sid,sname,sage,sclass) values(?,?,?,?)";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, student.getSid());
+            pstm.setString(2, student.getSname());
+            pstm.setString(3, student.getSage());
+            pstm.setString(4, student.getSclass());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+        } catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateStu(Student student) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean delStu(Student student) throws Exception {
+        return false;
+    }
+
+    @Override
+    public List stuList() {
+        List stuList = null;
+        try {
+            String sql = "select * from web.student";
+            pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            stuList = new ArrayList();
+
+            while (rs.next()){
+                Student student = new Student();
+                student.setSid(rs.getString(1));
+                student.setSname(rs.getString(2));
+                student.setSage(rs.getString(3));
+                student.setSclass(rs.getString(4));
+                stuList.add(student);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return stuList;
+    }
+
 }
