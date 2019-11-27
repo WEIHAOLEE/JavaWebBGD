@@ -43,7 +43,7 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue-light sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
     <header class="main-header">
@@ -377,7 +377,7 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">学生信息</h3>
+                            <h3 class="box-title">学生列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -438,6 +438,48 @@
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">添加学生</h3>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="sid" class="col-sm-2 control-label">学籍号</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" id="sid" placeholder="学籍号">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sname" class="col-sm-2 control-label">姓名</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="sname" placeholder="姓名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sage" class="col-sm-2 control-label">年龄</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" id="sage" placeholder="年龄">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sclass" class="col-sm-2 control-label">班级</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" id="sclass" placeholder="班级">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-info pull-right">添加</button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
                 </div>
                 <!-- /.col -->
             </div>
