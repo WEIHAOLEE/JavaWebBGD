@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet" href="dist/css/modules/layer/default/layer.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -389,6 +390,7 @@
                                     <th>姓名</th>
                                     <th>年龄</th>
                                     <th>班级</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
 
@@ -406,10 +408,22 @@
                                 %>
 
                                             <tr>
-                                                <td><%=student.getSid()%></td>
-                                                <td><%=student.getSname()%></td>
-                                                <td><%=student.getSage()%></td>
-                                                <td><%=student.getSclass()%></td>
+                                                <td contenteditable="true"><%=student.getSid()%></td>
+                                                <td contenteditable="true"><%=student.getSname()%></td>
+                                                <td contenteditable="true"><%=student.getSage()%></td>
+                                                <td contenteditable="true"><%=student.getSclass()%></td>
+                                                <td align="center" width="20%">
+                                                    <button class="fa fa-edit" style="height: 30px; width: 70px;"
+                                                            onclick="member_add('修改学生信息',
+                                                                    'update.jsp?sid=<%=student.getSid()%>&sname=<%=student.getSname()%>&sage=<%=student.getSage()%>&sclass=<%=student.getSclass()%>',
+                                                                    '600','500')">
+                                                        编辑
+                                                    </button>
+                                                    <button class="fa fa-remove" style="height: 30px; width: 70px"
+                                                            onclick="window.location.href='../delStu?sid=<%=student.getSid()%>'">
+                                                        删除
+                                                    </button>
+                                                </td>
                                             </tr>
 
 
@@ -561,6 +575,36 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
+<script src="dist/js/layui.js"></script>
+<script src="dist/js/lay/modules/layer.js"></script>
+<script>
+    function x_admin_show(title,url,w,h){
+        if (title == null || title == '') {
+            title=false;
+        };
+        if (w == null || w == '') {
+            w=800;
+        };
+        if (h == null || h == '') {
+            h=($(window).height() - 50);
+        };
+        layer.open({
+            type: 2,
+            area: [w+'px', h +'px'],
+            fix: false, //不固定
+            maxmin: true,
+            shadeClose: true,
+            shade:0.4,
+            title: title,
+            content: url
+        });
+    }
+</script>
+<script>
+    function member_add(title,url,w,h){
+        x_admin_show(title,url,w,h);
+    }
+</script>
 
 </body>
 </html>

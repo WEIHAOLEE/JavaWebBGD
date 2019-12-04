@@ -65,12 +65,18 @@ public class UserDAOProxy implements UserDAO {
 
     @Override
     public boolean updateStu(Student student) throws Exception {
-        return false;
+        boolean flag;
+        flag = this.dao.updateStu(student);
+        this.dbc.close();
+        return flag;
     }
 
     @Override
     public boolean delStu(Student student) throws Exception {
-        return false;
+        boolean flag;
+        flag = this.dao.delStu(student);
+        this.dbc.close();
+        return flag;
     }
 
     @Override

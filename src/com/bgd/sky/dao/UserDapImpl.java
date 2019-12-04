@@ -119,12 +119,44 @@ public class UserDapImpl implements UserDAO {
 
     @Override
     public boolean updateStu(Student student) throws Exception {
-        return false;
+        boolean flag = false;
+        try {
+            String sql = "update web.student set sname=?,sage=?,sclass=? where sid=?";
+            pstm = con.prepareStatement(sql);
+
+            pstm.setString(1, student.getSname());
+            pstm.setString(2, student.getSage());
+            pstm.setString(3, student.getSclass());
+            pstm.setString(4, student.getSid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+        } catch (Exception e){
+            throw e;
+        }
+        return flag;
     }
 
     @Override
     public boolean delStu(Student student) throws Exception {
-        return false;
+        boolean flag = false;
+        try {
+            String sql = "delete from web.student where sid=?";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, student.getSid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+        } catch (Exception e){
+            throw e;
+        }
+        return flag;
     }
 
     @Override

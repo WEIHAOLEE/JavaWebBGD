@@ -16,6 +16,14 @@
         <servlet-name>addStu</servlet-name>
         <servlet-class>com.bgd.sky.servlet.addStu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>delStu</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.delStu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateStu</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.updateStu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -27,5 +35,13 @@
     <servlet-mapping>
         <servlet-name>addStu</servlet-name>
         <url-pattern>/addStu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delStu</servlet-name>
+        <url-pattern>/delStu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateStu</servlet-name>
+        <url-pattern>/updateStu</url-pattern>
     </servlet-mapping>
 </web-app>

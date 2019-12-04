@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class addStu extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("userName");
-        String password =request.getParameter("password");
 
         String sid = request.getParameter("sid");
         String sname = request.getParameter("sname");
