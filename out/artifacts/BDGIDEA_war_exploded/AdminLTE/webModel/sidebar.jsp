@@ -7,7 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<aside class="main-sidebar">
+
+
+
+
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -41,7 +44,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">菜单</li>
-            <li class="treeview">
+            <li class="treeview" onclick="javascript:menuOpen()">
                 <a>
                     <i class="fa fa-star-half-full"></i>
                     <span>学生信息</span>
@@ -59,9 +62,22 @@
         </ul>
     </section>
     <!-- /.sidebar -->
-</aside>
 
-
+<script>
+    function menuOpen(){
+        $(document).on("click",".sidebar-menu li a",function (e) {
+            var firstParent=$(this).parent("li");
+            var firstChildUl=$(this).next("ul");
+            if(firstParent.hasClass("menu-open")){
+                firstParent.removeClass("menu-open");
+                firstChildUl.hide();
+            }else{
+                firstParent.addClass("menu-open");
+                firstChildUl.show();
+            }
+        });
+    }
+</script>
 
 
 </html>

@@ -38,6 +38,8 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
 </head>
 <body class="hold-transition skin-blue-light sidebar-mini sidebar-collapse">
 <div class="wrapper">
@@ -45,7 +47,7 @@
     <header class="webHeader">
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="webSidebar">
+    <aside class="main-sidebar">
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -119,11 +121,14 @@
 <script src="dist/js/demo.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+
         $('.webHeader').load('webModel/header.jsp');
-        $('.webSidebar').load('webModel/sidebar.jsp');
+        $('.main-sidebar').load('webModel/sidebar.jsp');
         $('.webFooter').load('webModel/footer.jsp');
-    });
+</script>
+
+<script>
+
 </script>
 </body>
 </html>
