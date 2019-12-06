@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="webModel/logicName.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>

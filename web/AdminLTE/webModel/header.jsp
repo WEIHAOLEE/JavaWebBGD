@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="logicName.jsp"%>
 <html>
 
 <header class="main-header">
@@ -228,7 +229,6 @@
                         <img src="dist/img/defaultUser.png" class="user-image" alt="User Image">
                         <span class="hidden-xs">
                                 <%
-                                    String username = (String) request.getSession().getAttribute("username");
                                     out.println(username);
                                 %>
                             </span>

@@ -269,6 +269,9 @@
                                 <%
                                     String username = (String) request.getSession().getAttribute("username");
                                     out.println(username);
+                                    if (username == null){
+                                        response.sendRedirect("pages/examples/login.html");
+                                    }
                                 %>
                             </span>
                         </a>

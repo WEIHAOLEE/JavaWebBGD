@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="logicName.jsp"%>
 <html>
 
 
@@ -22,7 +23,6 @@
                 <p class="username">
 
                     <%
-                        String username = (String) request.getSession().getAttribute("username");
                         out.println(username);
                     %>
 
