@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.bgd.sky.foctory.DAOFactory" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="com.bgd.sky.bean.Student" %>
+<%@ page import="com.bgd.sky.bean.Course" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="webModel/logicName.jsp"%>
 <!DOCTYPE html>
@@ -66,7 +66,7 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">学生列表</h3>
+                            <h3 class="box-title">课程列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -74,10 +74,10 @@
                                 <%-- 表头 --%>
                                 <thead>
                                 <tr>
-                                    <th>学号</th>
-                                    <th>姓名</th>
-                                    <th>年龄</th>
-                                    <th>班级</th>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -89,26 +89,26 @@
 
                                 <%
                                     try {
-                                        List stuList = DAOFactory.getUserDAOInstance().stuList(); //查询数据表user信息
-                                        Iterator iter = stuList.iterator();
+                                        List couList = DAOFactory.getUserDAOInstance().couList(); //查询数据表user信息
+                                        Iterator iter = couList.iterator();
                                         while (iter.hasNext()){
-                                            Student student = (Student)iter.next();
+                                            Course course = (Course) iter.next();
                                 %>
 
                                             <tr>
-                                                <td contenteditable="true"><%=student.getSid()%></td>
-                                                <td contenteditable="true"><%=student.getSname()%></td>
-                                                <td contenteditable="true"><%=student.getSage()%></td>
-                                                <td contenteditable="true"><%=student.getSclass()%></td>
+                                                <td contenteditable="true"><%=course.getCid()%></td>
+                                                <td contenteditable="true"><%=course.getCname()%></td>
+                                                <td contenteditable="true"><%=course.getCinr()%></td>
+                                                <td contenteditable="true"><%=course.getCredit()%></td>
                                                 <td align="center" width="20%">
                                                     <button class="btn btn-info fa fa-edit"
                                                             onclick="member_add('修改学生信息',
-                                                                    'update.jsp?sid=<%=student.getSid()%>&sname=<%=student.getSname()%>&sage=<%=student.getSage()%>&sclass=<%=student.getSclass()%>',
+                                                                    'update.jsp?sid=<%=course.getCid()%>&sname=<%=course.getCname()%>&sage=<%=course.getCinr()%>&sclass=<%=course.getCredit()%>',
                                                                     '600','500')">
                                                         编辑
                                                     </button>
                                                     <button class="btn btn-danger fa fa-remove"
-                                                            onclick="window.location.href='../delStu?sid=<%=student.getSid()%>'">
+                                                            onclick="window.location.href='../delStu?sid=<%=course.getCid()%>'">
                                                         删除
                                                     </button>
                                                 </td>
@@ -129,10 +129,10 @@
                                     <%-- 表尾 --%>
                                 <tfoot>
                                 <tr>
-                                    <th>学号</th>
-                                    <th>姓名</th>
-                                    <th>年龄</th>
-                                    <th>班级</th>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -142,36 +142,36 @@
                     <!-- /.box -->
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">添加学生</h3>
+                            <h3 class="box-title">添加课程</h3>
                         </div>
                         <form class="form-horizontal" action="../addStu">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="sid" class="col-sm-2 control-label">学籍号</label>
+                                    <label for="cid" class="col-sm-2 control-label">课程编号</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sid" placeholder="学籍号" name="sid">
+                                        <input type="text" class="form-control" id="cid" placeholder="课程编号" name="cid">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sname" class="col-sm-2 control-label">姓名</label>
+                                    <label for="cname" class="col-sm-2 control-label">课程名称</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="sname" placeholder="姓名" name="sname">
+                                        <input type="text" class="form-control" id="cname" placeholder="课程名称" name="cname">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sage" class="col-sm-2 control-label">年龄</label>
+                                    <label for="cinr" class="col-sm-2 control-label">课程描述</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sage" placeholder="年龄" name="sage">
+                                        <input type="text" class="form-control" id="cinr" placeholder="课程描述" name="cinr">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sclass" class="col-sm-2 control-label">班级</label>
+                                    <label for="credit" class="col-sm-2 control-label">课程学分</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sclass" placeholder="班级" name="sclass">
+                                        <input type="number" class="form-control" id="credit" placeholder="课程学分" name="credit">
                                     </div>
                                 </div>
                             </div>

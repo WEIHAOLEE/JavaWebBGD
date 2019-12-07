@@ -24,4 +24,8 @@ public interface UserDAO {
     public boolean delStu(Student student) throws Exception;
     public List stuList();
 
+
+    // Course
+    public List couList();
+
 }

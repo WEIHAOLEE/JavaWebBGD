@@ -47,14 +47,14 @@
             <li class="treeview" onclick="javascript:menuOpen()">
                 <a>
                     <i class="fa fa-star-half-full"></i>
-                    <span>学生信息</span>
+                    <span>控制台</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="searchStudent.jsp"><i class="fa fa-circle-o"></i> 查询学生信息</a></li>
-                    <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> 添加</a></li>
+                    <li><a href="searchStudent.jsp"><i class="fa fa-circle-o"></i> 学生信息</a></li>
+                    <li><a href="searchCourse.jsp"><i class="fa fa-circle-o"></i> 课程信息</a></li>
                     <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> 修改</a></li>
                     <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> 删除</a></li>
                 </ul>

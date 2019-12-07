@@ -266,7 +266,7 @@
                                 <a href="#" class="btn btn-default btn-flat">个人资料</a>
                             </div>
                             <div class="pull-right">
-                                <a href="pages/examples/login.html" class="btn btn-default btn-flat">登出</a>
+                                <a href="../desSession" class="btn btn-default btn-flat">登出</a>
                             </div>
                         </li>
                     </ul>

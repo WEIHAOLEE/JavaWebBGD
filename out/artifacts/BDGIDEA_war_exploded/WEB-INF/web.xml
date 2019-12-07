@@ -24,6 +24,10 @@
         <servlet-name>updateStu</servlet-name>
         <servlet-class>com.bgd.sky.servlet.updateStu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>destorySession</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.destorySession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -44,4 +48,10 @@
         <servlet-name>updateStu</servlet-name>
         <url-pattern>/updateStu</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>destorySession</servlet-name>
+        <url-pattern>/desSession</url-pattern>
+    </servlet-mapping>
+
 </web-app>

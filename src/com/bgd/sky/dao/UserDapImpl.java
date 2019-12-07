@@ -1,5 +1,6 @@
 package com.bgd.sky.dao;
 
+import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
 import com.bgd.sky.bean.User;
 
@@ -182,4 +183,30 @@ public class UserDapImpl implements UserDAO {
         return stuList;
     }
 
+
+    // Course
+
+
+    @Override
+    public List couList() {
+        List couList = null;
+        try{
+            String sql = "select * from web.course";
+            pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            couList = new ArrayList();
+
+            while (rs.next()){
+                Course course = new Course();
+                course.setCid(rs.getString(1));
+                course.setCname(rs.getString(2));
+                course.setCinr(rs.getString(3));
+                course.setCredit(rs.getString(4));
+                couList.add(course);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return couList;
+    }
 }

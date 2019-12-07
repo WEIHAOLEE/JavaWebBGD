@@ -83,4 +83,12 @@ public class UserDAOProxy implements UserDAO {
     public List stuList() {
         return this.dao.stuList();
     }
+
+
+    // Course
+
+    @Override
+    public List couList() {
+        return this.dao.couList();
+    }
 }
