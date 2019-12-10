@@ -1,5 +1,6 @@
 package com.bgd.sky.dao;
 
+import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
 import com.bgd.sky.bean.User;
 
@@ -26,6 +27,9 @@ public interface UserDAO {
 
 
     // Course
+    public boolean addCou(Course course) throws Exception;
+    public boolean updateCou(Course course) throws Exception;
+    public boolean delCou(Course course) throws Exception;
     public List couList();
 
 }

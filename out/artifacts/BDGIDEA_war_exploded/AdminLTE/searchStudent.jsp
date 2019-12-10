@@ -103,7 +103,7 @@
                                                 <td align="center" width="20%">
                                                     <button class="btn btn-info fa fa-edit"
                                                             onclick="member_add('修改学生信息',
-                                                                    'update.jsp?sid=<%=student.getSid()%>&sname=<%=student.getSname()%>&sage=<%=student.getSage()%>&sclass=<%=student.getSclass()%>',
+                                                                    'updateStu.jsp?sid=<%=student.getSid()%>&sname=<%=student.getSname()%>&sage=<%=student.getSage()%>&sclass=<%=student.getSclass()%>',
                                                                     '600','500')">
                                                         编辑
                                                     </button>

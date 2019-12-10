@@ -28,6 +28,18 @@
         <servlet-name>destorySession</servlet-name>
         <servlet-class>com.bgd.sky.servlet.destorySession</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addCou</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.addCou</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>delCou</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.delCou</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateCou</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.updateCou</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -52,6 +64,18 @@
     <servlet-mapping>
         <servlet-name>destorySession</servlet-name>
         <url-pattern>/desSession</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addCou</servlet-name>
+        <url-pattern>/addCou</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delCou</servlet-name>
+        <url-pattern>/delCou</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateCou</servlet-name>
+        <url-pattern>/updateCou</url-pattern>
     </servlet-mapping>
 
 </web-app>

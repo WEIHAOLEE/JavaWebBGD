@@ -188,6 +188,72 @@ public class UserDapImpl implements UserDAO {
 
 
     @Override
+    public boolean addCou(Course course) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "insert into web.course(cid, cname, cinr, credit) values(?,?,?,?)";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, course.getCid());
+            pstm.setString(2, course.getCname());
+            pstm.setString(3, course.getCinr());
+            pstm.setString(4, course.getCredit());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1) {
+                flag = true;
+                pstm.close();
+            }
+
+
+        }catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateCou(Course course) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "update web.course set cname=?,cinr=?,credit=? where cid=?";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, course.getCname());
+            pstm.setString(2, course.getCinr());
+            pstm.setString(3, course.getCredit());
+            pstm.setString(4, course.getCid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+
+        }catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean delCou(Course course) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "delete from web.course where cid=?";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, course.getCid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+        } catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
+
+    @Override
     public List couList() {
         List couList = null;
         try{

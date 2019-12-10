@@ -1,5 +1,6 @@
 package com.bgd.sky.dao;
 
+import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
 import com.bgd.sky.bean.User;
 import com.bgd.sky.dataBase.DBC;
@@ -86,6 +87,31 @@ public class UserDAOProxy implements UserDAO {
 
 
     // Course
+
+
+    @Override
+    public boolean addCou(Course course) throws Exception {
+        boolean flag;
+        flag = this.dao.addCou(course);
+        this.dbc.close();
+        return flag;
+    }
+
+    @Override
+    public boolean updateCou(Course course) throws Exception {
+        boolean flag;
+        flag = this.dao.updateCou(course);
+        this.dbc.close();
+        return flag;
+    }
+
+    @Override
+    public boolean delCou(Course course) throws Exception {
+        boolean flag;
+        flag = this.dao.delCou(course);
+        this.dbc.close();
+        return flag;
+    }
 
     @Override
     public List couList() {

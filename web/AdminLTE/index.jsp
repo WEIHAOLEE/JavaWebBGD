@@ -61,11 +61,14 @@
                 <!--        <li class="active">Dashboard</li>-->
             </ol>
             <br/>
-            <br/>
+            <div style="text-align: center;font-size: 20px">Hi! <%out.println(username);%></div>
             <h1 style="text-align: center;">
                 <big>欢迎登陆学生管理系统</big><br/>
-                <small>首页｜控制台</small>
+                <small>首页｜控制台</small><br><br><br>
+                <big><big><big id="time"></big></big></big>
             </h1>
+
+
         </section>
     </div>
 
@@ -129,7 +132,25 @@
         $('.webFooter').load('webModel/footer.jsp');
 </script>
 
-<script>
+<script type="text/javascript">
+    function time(){
+        var vWeek,vWeek_s,vDay;
+        vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var date =  new Date();
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        hours = date.getHours();
+        minutes = date.getMinutes();
+        seconds = date.getSeconds();
+        vWeek_s = date.getDay();
+
+        document.getElementById("time").innerHTML = hours + ":" + minutes +":" + seconds;
+        document.getElementById("date").innerHTML = year + "年" + month + "月" + day + "日";
+        document.getElementById("week").innerHTML = vWeek[vWeek_s];
+
+    };
+    setInterval("time()",1000);
 
 </script>
 </body>

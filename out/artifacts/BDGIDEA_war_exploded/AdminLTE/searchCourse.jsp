@@ -102,13 +102,13 @@
                                                 <td contenteditable="true"><%=course.getCredit()%></td>
                                                 <td align="center" width="20%">
                                                     <button class="btn btn-info fa fa-edit"
-                                                            onclick="member_add('修改学生信息',
-                                                                    'update.jsp?sid=<%=course.getCid()%>&sname=<%=course.getCname()%>&sage=<%=course.getCinr()%>&sclass=<%=course.getCredit()%>',
+                                                            onclick="member_add('修改课程信息',
+                                                                    'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',
                                                                     '600','500')">
                                                         编辑
                                                     </button>
                                                     <button class="btn btn-danger fa fa-remove"
-                                                            onclick="window.location.href='../delStu?sid=<%=course.getCid()%>'">
+                                                            onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">
                                                         删除
                                                     </button>
                                                 </td>
@@ -144,7 +144,7 @@
                         <div class="box-header">
                             <h3 class="box-title">添加课程</h3>
                         </div>
-                        <form class="form-horizontal" action="../addStu">
+                        <form class="form-horizontal" action="../addCou">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="cid" class="col-sm-2 control-label">课程编号</label>
