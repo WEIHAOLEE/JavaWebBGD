@@ -55,7 +55,7 @@
                 <ul class="treeview-menu">
                     <li><a href="searchStudent.jsp"><i class="fa fa-circle-o"></i> 学生信息</a></li>
                     <li><a href="searchCourse.jsp"><i class="fa fa-circle-o"></i> 课程信息</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> 修改</a></li>
+                    <li><a href="profile.jsp"><i class="fa fa-circle-o"></i> 用户信息</a></li>
                     <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> 删除</a></li>
                 </ul>
             </li>

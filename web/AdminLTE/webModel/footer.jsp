@@ -13,7 +13,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2019 <a>WeiHao.L</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="https://github.com/WEIHAOLEE">WeiHao.L</a>.</strong> All rights
     reserved.
 </footer>
 </body>

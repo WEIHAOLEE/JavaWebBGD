@@ -62,145 +62,48 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <!-- /.box -->
+                    <div class="box ">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" src="dist/img/defaultUser.png" alt="User profile picture">
 
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">学生列表</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <%-- 表头 --%>
-                                <thead>
-                                <tr>
-                                    <th>学号</th>
-                                    <th>姓名</th>
-                                    <th>年龄</th>
-                                    <th>班级</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
+                            <h3 class="profile-username text-center"><%out.println(username);%></h3>
 
+                            <p class="text-muted text-center">超级管理员</p>
 
-                                <tbody>
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>Followers</b> <a class="pull-right">1,322</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Following</b> <a class="pull-right">543</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Friends</b> <a class="pull-right">13,287</a>
+                                </li>
+                            </ul>
 
-
-
-                                <%
-                                    try {
-                                        List stuList = DAOFactory.getUserDAOInstance().stuList(); //查询数据表user信息
-                                        Iterator iter = stuList.iterator();
-                                        while (iter.hasNext()){
-                                            Student student = (Student)iter.next();
-                                %>
-
-                                            <tr>
-                                                <td contenteditable="true"><%=student.getSid()%></td>
-                                                <td contenteditable="true"><%=student.getSname()%></td>
-                                                <td contenteditable="true"><%=student.getSage()%></td>
-                                                <td contenteditable="true"><%=student.getSclass()%></td>
-                                                <td align="center" width="20%">
-                                                    <button class="btn btn-info fa fa-edit"
-                                                            onclick="member_add('修改学生信息',
-                                                                    'updateStu.jsp?sid=<%=student.getSid()%>&sname=<%=student.getSname()%>&sage=<%=student.getSage()%>&sclass=<%=student.getSclass()%>',
-                                                                    '600','500')">
-                                                        编辑
-                                                    </button>
-                                                    <button class="btn btn-danger fa fa-remove"
-                                                            onclick="window.location.href='../delStu?sid=<%=student.getSid()%>'">
-                                                        删除
-                                                    </button>
-                                                </td>
-                                            </tr>
-
-
-                                <%
-                                        }
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-
-
-                                %>
-
-                                </tbody>
-
-                                    <%-- 表尾 --%>
-                                <tfoot>
-                                <tr>
-                                    <th>学号</th>
-                                    <th>姓名</th>
-                                    <th>年龄</th>
-                                    <th>班级</th>
-                                </tr>
-                                </tfoot>
-                            </table>
-                            <button type="button" class="btn btn-info btn-block" onclick="tableToExcel('example1','StudentData')">导出为Excel</button>
+                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
                         </div>
                         <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">添加学生</h3>
-                        </div>
-                        <form class="form-horizontal" action="../addStu">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="sid" class="col-sm-2 control-label">学籍号</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sid" placeholder="学籍号" name="sid">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sname" class="col-sm-2 control-label">姓名</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="sname" placeholder="姓名" name="sname">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sage" class="col-sm-2 control-label">年龄</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sage" placeholder="年龄" name="sage">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sclass" class="col-sm-2 control-label">班级</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="sclass" placeholder="班级" name="sclass">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-info pull-right">添加</button>
-                            </div>
-                            <!-- /.box-footer -->
-                        </form>
                     </div>
                 </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->
         </section>
-    <!-- /.row (main row) -->
+        <!-- /.row (main row) -->
 
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<footer class="webFooter">
-</footer>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="webFooter">
+    </footer>
 
 
-<!-- Add the sidebar's background. This div must be placed
-     immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
