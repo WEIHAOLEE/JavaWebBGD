@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>LeeIn | 个人资料</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -62,6 +62,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
+                    <%--profile--%>
                     <div class="box ">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle" src="dist/img/defaultUser.png" alt="User profile picture">
@@ -72,20 +73,53 @@
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>Followers</b> <a class="pull-right">1,322</a>
+                                    <b>用户名</b> <a class="pull-right"><%out.println(username);%></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Following</b> <a class="pull-right">543</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>Friends</b> <a class="pull-right">13,287</a>
+                                    <b>用户类型</b> <a class="pull-right">超级管理员</a>
                                 </li>
                             </ul>
 
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                            <a href="../desSession" class="btn btn-primary btn-block btn-danger"><b>登出</b></a>
                         </div>
                         <!-- /.box-body -->
                     </div>
+                        <!-- Post -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">个人相册</h3>
+                            </div>
+                        <div class="post">
+                            <div class="row margin">
+                                <div class="col-sm-6">
+                                    <img class="img-responsive" src="dist/img/photo1.png" alt="Photo">
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img class="img-responsive" src="dist/img/photo2.png" alt="Photo">
+                                            <br>
+                                            <img class="img-responsive" src="dist/img/photo3.jpg" alt="Photo">
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <img class="img-responsive" src="dist/img/photo2.png" alt="Photo">
+                                            <br>
+                                            <img class="img-responsive" src="dist/img/photo1.png" alt="Photo">
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                            <div class="box-footer">
+
+                            </div>
+                        </div>
                 </div>
                 <!-- /.col -->
             </div>
