@@ -1,5 +1,6 @@
 package com.bgd.sky.servlet;
 
+import com.bgd.sky.bean.Student;
 import com.bgd.sky.bean.User;
 import com.bgd.sky.foctory.DAOFactory;
 
@@ -15,29 +16,62 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("userName");
         String password =request.getParameter("password");
+        String userType = request.getParameter("userType");
+        System.out.println(userType);
 
-        // 通过javabean
-        User user = new User();
-        user.setName(username);
-        user.setPassword(password);
-
-
-        try {
-            if (DAOFactory.getUserDAOInstance().find(user)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
-
-                 request.getSession().setAttribute("username", username);
+        if (userType.equals("user")){
+            // 通过javabean
+            User user = new User();
+            user.setName(username);
+            user.setPassword(password);
 
 
-                response.sendRedirect("AdminLTE/index.jsp");
+            try {
+                if (DAOFactory.getUserDAOInstance().find(user)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
+
+                    request.getSession().setAttribute("username", username);
+                    request.getSession().setAttribute("userType", "超级管理员");
+                    request.getSession().setAttribute("userId",user.getId());
+
+
+                    response.sendRedirect("AdminLTE/index.jsp");
 
 //                request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
-            }else{
-                response.sendRedirect("AdminLTE/pages/examples/login.html");
+                }else{
+                    response.sendRedirect("AdminLTE/pages/examples/login.html");
 //                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        }else if(userType.equals("student")){
+            Student student = new Student();
+            student.setSname(username);
+            student.setSpassword(password);
+
+            try {
+                if (DAOFactory.getUserDAOInstance().stuFind(student)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
+
+                    request.getSession().setAttribute("username", username);
+                    request.getSession().setAttribute("userType", "学生");
+                    request.getSession().setAttribute("userId",student.getSid());
+
+
+                    response.sendRedirect("AdminLTE/index.jsp");
+
+//                request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
+                }else{
+                    response.sendRedirect("AdminLTE/pages/examples/login.html");
+//                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
         }
+
 
 
     }

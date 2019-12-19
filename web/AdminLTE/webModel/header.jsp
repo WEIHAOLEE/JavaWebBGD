@@ -45,7 +45,11 @@
                                 <%
                                     out.println(username);
                                 %>
-                                <small>超级管理员</small>
+                                <small>
+                                    <%
+                                    out.println(userType);
+                                    %>
+                                </small>
                             </p>
                         </li>
                         <!-- Menu Body -->

@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.bgd.sky.foctory.DAOFactory" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="com.bgd.sky.bean.Student" %>
+<%@ page import="com.bgd.sky.bean.Course" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="webModel/logicName.jsp"%>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LeeIn | 个人资料</title>
+    <title>LeeIn | 课程信息</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -62,67 +62,164 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <%--profile--%>
-                    <div class="box ">
-                        <div class="box-body box-profile">
-                            <img class="profile-user-img img-responsive img-circle" src="dist/img/defaultUser.png" alt="User profile picture">
+                    <!-- /.box -->
 
-                            <h3 class="profile-username text-center"><%out.println(username);%></h3>
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">可选列表</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
 
-                            <p class="text-muted text-center"><%out.println(userType);%></p>
+                            <table id="selectCou" class="table table-bordered table-striped">
+                                <%-- 表头 --%>
+                                <thead>
+                                <tr>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
 
-                            <ul class="list-group list-group-unbordered">
-                                <li class="list-group-item">
-                                    <b>ID号</b> <a class="pull-right"><%out.println(userId);%></a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>用户名</b> <a class="pull-right"><%out.println(username);%></a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>用户类型</b> <a class="pull-right"><%out.println(userType);%></a>
-                                </li>
-                            </ul>
 
-                            <a href="../desSession" class="btn btn-primary btn-block btn-danger"><b>登出</b></a>
+                                <tbody>
+
+
+
+                                <%
+                                    try {
+                                        List couList = DAOFactory.getUserDAOInstance().couList(); //查询数据表user信息
+                                        Iterator iter = couList.iterator();
+                                        while (iter.hasNext()){
+                                            Course course = (Course) iter.next();
+                                %>
+
+                                <tr>
+                                    <td contenteditable="true"><%=course.getCid()%></td>
+                                    <td contenteditable="true"><%=course.getCname()%></td>
+                                    <td contenteditable="true"><%=course.getCinr()%></td>
+                                    <td contenteditable="true"><%=course.getCredit()%></td>
+                                    <td align="center" width="20%">
+                                        <button class="btn btn-info fa fa-edit"
+                                                onclick="member_add('修改课程信息',
+                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',
+                                                        '600','500')">
+                                            编辑
+                                        </button>
+                                        <button class="btn btn-danger fa fa-remove"
+                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">
+                                            删除
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+                                <%
+                                        }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+
+
+                                %>
+
+                                </tbody>
+
+                                <%-- 表尾 --%>
+                                <tfoot>
+                                <tr>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
-                        <!-- Post -->
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">个人相册</h3>
-                            </div>
-                        <div class="post">
-                            <div class="row margin">
-                                <div class="col-sm-6">
-                                    <img class="img-responsive" src="dist/img/photo1.png" alt="Photo">
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-sm-6">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <img class="img-responsive" src="dist/img/photo2.png" alt="Photo">
-                                            <br>
-                                            <img class="img-responsive" src="dist/img/photo3.jpg" alt="Photo">
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <img class="img-responsive" src="dist/img/photo2.png" alt="Photo">
-                                            <br>
-                                            <img class="img-responsive" src="dist/img/photo1.png" alt="Photo">
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.row -->
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                            <div class="box-footer">
+                    <!-- /.box -->
 
-                            </div>
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">已选列表</h3>
                         </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+                            <table id="rSelectCou" class="table table-bordered table-striped">
+                                <%-- 表头 --%>
+                                <thead>
+                                <tr>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+
+
+                                <tbody>
+
+
+
+                                <%
+                                    try {
+                                        List couList = DAOFactory.getUserDAOInstance().couList(); //查询数据表user信息
+                                        Iterator iter = couList.iterator();
+                                        while (iter.hasNext()){
+                                            Course course = (Course) iter.next();
+                                %>
+
+                                <tr>
+                                    <td contenteditable="true"><%=course.getCid()%></td>
+                                    <td contenteditable="true"><%=course.getCname()%></td>
+                                    <td contenteditable="true"><%=course.getCinr()%></td>
+                                    <td contenteditable="true"><%=course.getCredit()%></td>
+                                    <td align="center" width="20%">
+                                        <button class="btn btn-info fa fa-edit"
+                                                onclick="member_add('修改课程信息',
+                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',
+                                                        '600','500')">
+                                            编辑
+                                        </button>
+                                        <button class="btn btn-danger fa fa-remove"
+                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">
+                                            删除
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+                                <%
+                                        }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+
+
+                                %>
+
+                                </tbody>
+
+                                <%-- 表尾 --%>
+                                <tfoot>
+                                <tr>
+                                    <th>课程编号</th>
+                                    <th>课程名称</th>
+                                    <th>课程描述</th>
+                                    <th>课程学分</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <button type="button" class="btn btn-info btn-block" onclick="tableToExcel('rSelectCou','CourseData')">导出为Excel</button>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
                 <!-- /.col -->
             </div>

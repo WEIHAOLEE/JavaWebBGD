@@ -25,11 +25,17 @@ public interface UserDAO {
     public boolean delStu(Student student) throws Exception;
     public List stuList();
 
+    // StudentPage
+    public boolean stuFind(Student student) throws Exception;
 
     // Course
     public boolean addCou(Course course) throws Exception;
     public boolean updateCou(Course course) throws Exception;
     public boolean delCou(Course course) throws Exception;
     public List couList();
+
+    // Select Course
+    public List sCouList(); //可选列表
+    public List rSCouList(); //已选列表
 
 }

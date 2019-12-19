@@ -5,6 +5,15 @@ public class Student {
     private String sname;
     private String sage;
     private String sclass;
+    private String spassword;
+
+    public String getSpassword() {
+        return spassword;
+    }
+
+    public void setSpassword(String spassword) {
+        this.spassword = spassword;
+    }
 
     public String getSid() {
         return sid;

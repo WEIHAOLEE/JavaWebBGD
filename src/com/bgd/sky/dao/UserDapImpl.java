@@ -79,11 +79,18 @@ public class UserDapImpl implements UserDAO {
         try {
             String sql = "select * from web.user where name=? and password=?";
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, user.getName());
-            pstm.setString(2, user.getPassword());
+            String name = user.getName();
+            String password = user.getPassword();
+            pstm.setString(1, name);
+            pstm.setString(2, password);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()){
                 flag = true;
+                String sqlName = "select id from web.user where name=?";
+                pstm = con.prepareStatement(sqlName);
+                pstm.setString(1, name);
+                ResultSet resultSet = pstm.executeQuery();
+                user.setId(rs.getString(1));
                 pstm.close();
             }
         } catch (SQLException e) {
@@ -100,7 +107,7 @@ public class UserDapImpl implements UserDAO {
     public boolean addStu(Student student) throws Exception {
         boolean flag = false;
         try {
-            String sql = "insert into web.student(sid,sname,sage,sclass) values(?,?,?,?)";
+            String sql = "insert into web.student(sid,sname,sage,sclass,spassword) values(?,?,?,?,'123')";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, student.getSid());
             pstm.setString(2, student.getSname());
@@ -164,7 +171,7 @@ public class UserDapImpl implements UserDAO {
     public List stuList() {
         List stuList = null;
         try {
-            String sql = "select * from web.student";
+            String sql = "select sid,sname,sage,sclass from web.student";
             pstm = con.prepareStatement(sql);
             ResultSet rs = pstm.executeQuery();
             stuList = new ArrayList();
@@ -182,6 +189,33 @@ public class UserDapImpl implements UserDAO {
         }
         return stuList;
     }
+
+    @Override
+    public boolean stuFind(Student student) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "select * from web.student where sname=? and spassword=?";
+            pstm = con.prepareStatement(sql);
+            String sname = student.getSname();
+            String spassword = student.getSpassword();
+            pstm.setString(1, sname);
+            pstm.setString(2, spassword);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()){
+                flag = true;
+                String sqlName = "select sid from web.student where sname=?";
+                pstm = con.prepareStatement(sqlName);
+                pstm.setString(1,sname);
+                ResultSet resultSet = pstm.executeQuery();
+                student.setSid(rs.getString(1));
+                pstm.close();
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return flag;
+    }
+
 
 
     // Course

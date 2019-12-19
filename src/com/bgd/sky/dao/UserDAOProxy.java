@@ -85,6 +85,13 @@ public class UserDAOProxy implements UserDAO {
         return this.dao.stuList();
     }
 
+    @Override
+    public boolean stuFind(Student student) throws Exception {
+        boolean flag;
+        flag = this.dao.stuFind(student);
+        this.dbc.close();
+        return flag;
+    }
 
     // Course
 

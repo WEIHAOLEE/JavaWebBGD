@@ -45,15 +45,16 @@
         <input type="password" class="form-control" placeholder="密码" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> 记住我
+              <input type="radio" name="userType" value="user"> 教师
+              <input type="radio" name="userType" value="student"> 学生
             </label>
           </div>
         </div>
-        <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
         </div>

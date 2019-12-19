@@ -63,7 +63,7 @@
             <br/>
             <div style="text-align: center;font-size: 20px">Hi! <%out.println(username);%></div>
             <h1 style="text-align: center;">
-                <big>欢迎登陆学生管理系统</big><br/>
+                <big>欢迎登陆选课系统</big><br/>
                 <small>首页｜控制台</small><br><br><br>
                 <big><big><big id="time"></big></big></big>
             </h1>

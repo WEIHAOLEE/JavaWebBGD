@@ -69,14 +69,17 @@
 
                             <h3 class="profile-username text-center"><%out.println(username);%></h3>
 
-                            <p class="text-muted text-center">超级管理员</p>
+                            <p class="text-muted text-center"><%out.println(userType);%></p>
 
                             <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>ID号</b> <a class="pull-right"><%out.println(userId);%></a>
+                                </li>
                                 <li class="list-group-item">
                                     <b>用户名</b> <a class="pull-right"><%out.println(username);%></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>用户类型</b> <a class="pull-right">超级管理员</a>
+                                    <b>用户类型</b> <a class="pull-right"><%out.println(userType);%></a>
                                 </li>
                             </ul>
 
