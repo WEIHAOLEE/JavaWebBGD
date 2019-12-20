@@ -13,24 +13,30 @@ import java.io.IOException;
 public class selectCou extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sid = (String) request.getSession().getAttribute("userId");
-        String cid = request.getParameter("getCid");
+        String[] cid = request.getParameterValues("getCid");
 
         Student student = new Student();
-        Course course = new Course();
-        student.setSid(sid);
-        course.setCid(cid);
 
-        try {
-            if (DAOFactory.getUserDAOInstance().selectCou(student,course)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
-                response.sendRedirect("AdminLTE/selectCourse.jsp");
+        student.setSid(sid);
+
+
+        for (int i=0; i < cid.length; i++){
+            Course course = new Course();
+            course.setCid(cid[i]);
+            try {
+                if (DAOFactory.getUserDAOInstance().selectCou(student,course)){  //用dao工厂模式下 getuserdaoinstance这个方法访问到user这个表
+                    response.sendRedirect("AdminLTE/selectCourse.jsp");
 //                request.getRequestDispatcher("AdminLTE/index.html").forward(request, response);
-            }else{
-                response.sendRedirect("AdminLTE/selectCourse.jsp");
+                }else{
+                    response.sendRedirect("AdminLTE/selectCourse.jsp");
 //                request.getRequestDispatcher("AdminLTE/pages/examples/login.html").forward(request, response);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
         }
+
 
     }
 
