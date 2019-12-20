@@ -38,4 +38,6 @@ public interface UserDAO {
     public List sCouList(); //可选列表
     public List rSCouList(); //已选列表
 
+    public boolean selectCou(Student student, Course course) throws Exception;
+
 }

@@ -69,6 +69,7 @@
                             <h3 class="box-title">可选列表</h3>
                         </div>
                         <!-- /.box-header -->
+                        <form action="../selectCou">
                         <div class="box-body">
 
                             <table id="selectCou" class="table table-bordered table-striped">
@@ -79,7 +80,7 @@
                                     <th>课程名称</th>
                                     <th>课程描述</th>
                                     <th>课程学分</th>
-                                    <th>操作</th>
+                                    <th>选择</th>
                                 </tr>
                                 </thead>
 
@@ -90,7 +91,7 @@
 
                                 <%
                                     try {
-                                        List couList = DAOFactory.getUserDAOInstance().couList(); //查询数据表user信息
+                                        List couList = DAOFactory.getUserDAOInstance().sCouList(); //查询数据表user信息
                                         Iterator iter = couList.iterator();
                                         while (iter.hasNext()){
                                             Course course = (Course) iter.next();
@@ -102,16 +103,17 @@
                                     <td contenteditable="true"><%=course.getCinr()%></td>
                                     <td contenteditable="true"><%=course.getCredit()%></td>
                                     <td align="center" width="20%">
-                                        <button class="btn btn-info fa fa-edit"
-                                                onclick="member_add('修改课程信息',
-                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',
-                                                        '600','500')">
-                                            编辑
-                                        </button>
-                                        <button class="btn btn-danger fa fa-remove"
-                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">
-                                            删除
-                                        </button>
+                                        <input type="checkbox" name="getCid" value="<%=course.getCid()%>">
+<%--                                        <button class="btn btn-info fa fa-edit"--%>
+<%--                                                onclick="member_add('修改课程信息',--%>
+<%--                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',--%>
+<%--                                                        '600','500')">--%>
+<%--                                            编辑--%>
+<%--                                        </button>--%>
+<%--                                        <button class="btn btn-danger fa fa-remove"--%>
+<%--                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">--%>
+<%--                                            删除--%>
+<%--                                        </button>--%>
                                     </td>
                                 </tr>
 
@@ -137,7 +139,10 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <br>
+                            <input type="submit" value="提交选课" class="btn btn-primary btn-block btn-info">
                         </div>
+                        </form>
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
@@ -168,7 +173,7 @@
 
                                 <%
                                     try {
-                                        List couList = DAOFactory.getUserDAOInstance().couList(); //查询数据表user信息
+                                        List couList = DAOFactory.getUserDAOInstance().rSCouList(); //查询数据表user信息
                                         Iterator iter = couList.iterator();
                                         while (iter.hasNext()){
                                             Course course = (Course) iter.next();

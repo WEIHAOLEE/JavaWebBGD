@@ -124,4 +124,26 @@ public class UserDAOProxy implements UserDAO {
     public List couList() {
         return this.dao.couList();
     }
+
+
+
+    // select course
+
+    @Override
+    public List sCouList() {
+        return this.dao.sCouList();
+    }
+
+    @Override
+    public List rSCouList() {
+        return this.dao.rSCouList();
+    }
+
+    @Override
+    public boolean selectCou(Student student, Course course) throws Exception {
+        boolean flag;
+        flag = this.dao.selectCou(student,course);
+        this.dbc.close();
+        return flag;
+    }
 }

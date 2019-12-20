@@ -309,4 +309,74 @@ public class UserDapImpl implements UserDAO {
         }
         return couList;
     }
+
+    // select course
+
+    @Override
+    public List sCouList() {
+        List sCouList = null;
+        try {
+            String sql = "select * from web.course where cid not in (select cid from web.s_c)";
+            pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            sCouList = new ArrayList();
+
+            while (rs.next()){
+                Course course = new Course();
+                course.setCid(rs.getString(1));
+                course.setCname(rs.getString(2));
+                course.setCinr(rs.getString(3));
+                course.setCredit(rs.getString(4));
+                sCouList.add(course);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return sCouList;
+    }
+
+    @Override
+    public List rSCouList() {
+        List rSCouList = null;
+        try {
+            String sql = "select * from web.course where cid  in (select cid from web.s_c)";
+            pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            rSCouList = new ArrayList();
+
+            while (rs.next()){
+                Course course = new Course();
+                course.setCid(rs.getString(1));
+                course.setCname(rs.getString(2));
+                course.setCinr(rs.getString(3));
+                course.setCredit(rs.getString(4));
+                rSCouList.add(course);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return rSCouList;
+    }
+
+    @Override
+    public boolean selectCou(Student student, Course course) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "insert into web.s_c(sid, cid) values(?,?)";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, student.getSid());
+            pstm.setString(2, course.getCid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1) {
+                flag = true;
+                pstm.close();
+            }
+
+
+        }catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
 }
