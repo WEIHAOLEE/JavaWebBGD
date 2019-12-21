@@ -67,6 +67,7 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">可选列表</h3>
+                            <small> (一经选择不可退选，请谨慎操作，如有问题请联系管理员)</small>
                         </div>
                         <!-- /.box-header -->
                         <form action="../selectCou">
@@ -162,7 +163,6 @@
                                     <th>课程名称</th>
                                     <th>课程描述</th>
                                     <th>课程学分</th>
-                                    <th>操作</th>
                                 </tr>
                                 </thead>
 
@@ -184,18 +184,6 @@
                                     <td contenteditable="true"><%=course.getCname()%></td>
                                     <td contenteditable="true"><%=course.getCinr()%></td>
                                     <td contenteditable="true"><%=course.getCredit()%></td>
-                                    <td align="center" width="20%">
-                                        <button class="btn btn-info fa fa-edit"
-                                                onclick="member_add('修改课程信息',
-                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',
-                                                        '600','500')">
-                                            编辑
-                                        </button>
-                                        <button class="btn btn-danger fa fa-remove"
-                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">
-                                            删除
-                                        </button>
-                                    </td>
                                 </tr>
 
 

@@ -2,6 +2,7 @@ package com.bgd.sky.dao;
 
 import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
+import com.bgd.sky.bean.StudentCourse;
 import com.bgd.sky.bean.User;
 
 import java.util.List;
@@ -39,5 +40,9 @@ public interface UserDAO {
     public List rSCouList(); //已选列表
 
     public boolean selectCou(Student student, Course course) throws Exception;
+
+    public List studentCouList(); //sc表
+
+    public boolean delSelectCou(StudentCourse studentCourse) throws Exception; //删除已选课程
 
 }

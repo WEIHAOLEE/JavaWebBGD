@@ -44,6 +44,10 @@
         <servlet-name>selectCou</servlet-name>
         <servlet-class>com.bgd.sky.servlet.selectCou</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>delSelectCou</servlet-name>
+        <servlet-class>com.bgd.sky.servlet.delSelectCou</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -84,5 +88,9 @@
     <servlet-mapping>
         <servlet-name>selectCou</servlet-name>
         <url-pattern>/selectCou</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delSelectCou</servlet-name>
+        <url-pattern>/delSelectCou</url-pattern>
     </servlet-mapping>
 </web-app>

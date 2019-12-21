@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.bgd.sky.foctory.DAOFactory" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="com.bgd.sky.bean.Student" %>
+<%@ page import="com.bgd.sky.bean.StudentCourse" %>
 <%@ page import="com.bgd.sky.bean.Course" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="webModel/logicName.jsp"%>
@@ -9,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LeeIn | 课程信息</title>
+    <title>LeeIn | 学生信息</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -66,22 +68,23 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">可选列表</h3>
-                            <small> (一经选择不可退选，请谨慎操作，如有问题请联系管理员)</small>
+                            <h3 class="box-title">学生列表</h3>
                         </div>
                         <!-- /.box-header -->
-                        <form action="../selectCou">
                         <div class="box-body">
-
-                            <table id="selectCou" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <%-- 表头 --%>
                                 <thead>
                                 <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>班级</th>
+                                    <th>密码</th>
                                     <th>课程编号</th>
                                     <th>课程名称</th>
                                     <th>课程描述</th>
                                     <th>课程学分</th>
-                                    <th>选择</th>
                                 </tr>
                                 </thead>
 
@@ -92,29 +95,29 @@
 
                                 <%
                                     try {
-                                        List couList = DAOFactory.getUserDAOInstance().sCouList(); //查询数据表user信息
-                                        Iterator iter = couList.iterator();
+                                        List studentCouList = DAOFactory.getUserDAOInstance().studentCouList(); //查询数据表user信息
+                                        Iterator iter = studentCouList.iterator();
                                         while (iter.hasNext()){
+
+                                            Student student = (Student) iter.next();
                                             Course course = (Course) iter.next();
                                 %>
 
                                 <tr>
-                                    <td contenteditable="true"><%=course.getCid()%></td>
-                                    <td contenteditable="true"><%=course.getCname()%></td>
-                                    <td contenteditable="true"><%=course.getCinr()%></td>
-                                    <td contenteditable="true"><%=course.getCredit()%></td>
+                                    <td><%=student.getSid()%></td>
+                                    <td><%=student.getSname()%></td>
+                                    <td><%=student.getSage()%></td>
+                                    <td><%=student.getSclass()%></td>
+                                    <td><%=student.getSpassword()%></td>
+                                    <td><%=course.getCid()%></td>
+                                    <td><%=course.getCname()%></td>
+                                    <td><%=course.getCinr()%></td>
+                                    <td><%=course.getCredit()%></td>
                                     <td align="center" width="20%">
-                                        <input type="checkbox" name="getCid" value="<%=course.getCid()%>">
-<%--                                        <button class="btn btn-info fa fa-edit"--%>
-<%--                                                onclick="member_add('修改课程信息',--%>
-<%--                                                        'updateCou.jsp?cid=<%=course.getCid()%>&cname=<%=course.getCname()%>&cinr=<%=course.getCinr()%>&credit=<%=course.getCredit()%>',--%>
-<%--                                                        '600','500')">--%>
-<%--                                            编辑--%>
-<%--                                        </button>--%>
-<%--                                        <button class="btn btn-danger fa fa-remove"--%>
-<%--                                                onclick="window.location.href='../delCou?cid=<%=course.getCid()%>'">--%>
-<%--                                            删除--%>
-<%--                                        </button>--%>
+                                        <button class="btn btn-danger fa fa-remove"
+                                                onclick="window.location.href='../delSelectCou?sid=<%=student.getSid()%>&cid=<%=course.getCid()%>'">
+                                            删除
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -133,6 +136,11 @@
                                 <%-- 表尾 --%>
                                 <tfoot>
                                 <tr>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>班级</th>
+                                    <th>密码</th>
                                     <th>课程编号</th>
                                     <th>课程名称</th>
                                     <th>课程描述</th>
@@ -140,75 +148,7 @@
                                 </tr>
                                 </tfoot>
                             </table>
-                            <br>
-                            <input type="submit" value="提交选课" class="btn btn-primary btn-block btn-info">
-                        </div>
-                        </form>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">已选列表</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-
-                            <table id="rSelectCou" class="table table-bordered table-striped">
-                                <%-- 表头 --%>
-                                <thead>
-                                <tr>
-                                    <th>课程编号</th>
-                                    <th>课程名称</th>
-                                    <th>课程描述</th>
-                                    <th>课程学分</th>
-                                </tr>
-                                </thead>
-
-
-                                <tbody>
-
-
-
-                                <%
-                                    try {
-                                        List couList = DAOFactory.getUserDAOInstance().rSCouList(); //查询数据表user信息
-                                        Iterator iter = couList.iterator();
-                                        while (iter.hasNext()){
-                                            Course course = (Course) iter.next();
-                                %>
-
-                                <tr>
-                                    <td contenteditable="true"><%=course.getCid()%></td>
-                                    <td contenteditable="true"><%=course.getCname()%></td>
-                                    <td contenteditable="true"><%=course.getCinr()%></td>
-                                    <td contenteditable="true"><%=course.getCredit()%></td>
-                                </tr>
-
-
-                                <%
-                                        }
-                                    }catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-
-
-                                %>
-
-                                </tbody>
-
-                                <%-- 表尾 --%>
-                                <tfoot>
-                                <tr>
-                                    <th>课程编号</th>
-                                    <th>课程名称</th>
-                                    <th>课程描述</th>
-                                    <th>课程学分</th>
-                                </tr>
-                                </tfoot>
-                            </table>
-                            <button type="button" class="btn btn-info btn-block" onclick="tableToExcel('rSelectCou','CourseData')">导出为Excel</button>
+                            <button type="button" class="btn btn-info btn-block" onclick="tableToExcel('example1','StudentData')">导出为Excel</button>
                         </div>
                         <!-- /.box-body -->
                     </div>

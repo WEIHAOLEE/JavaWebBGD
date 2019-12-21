@@ -14,6 +14,7 @@
             "                    <li><a href=\"searchStudent.jsp\"><i class=\"fa fa-circle-o\"></i> 学生信息</a></li>\n" +
             "                    <li><a href=\"searchCourse.jsp\"><i class=\"fa fa-circle-o\"></i> 课程信息</a></li>\n" +
             "                    <li><a href=\"profile.jsp\"><i class=\"fa fa-circle-o\"></i> 用户信息</a></li>\n" +
+            "                    <li><a href=\"studentCourse.jsp\"><i class=\"fa fa-circle-o\"></i> 学生选课概况</a></li>\n" +
             "                    <li><a href=\"pages/charts/inline.html\"><i class=\"fa fa-circle-o\"></i> 删除</a></li>\n" +
             "                </ul>";
     String studentList = "                <ul class=\"treeview-menu\">\n" +

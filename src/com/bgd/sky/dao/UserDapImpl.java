@@ -2,6 +2,7 @@ package com.bgd.sky.dao;
 
 import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
+import com.bgd.sky.bean.StudentCourse;
 import com.bgd.sky.bean.User;
 
 import java.sql.Connection;
@@ -375,6 +376,56 @@ public class UserDapImpl implements UserDAO {
 
 
         }catch (Exception e){
+            throw e;
+        }
+        return flag;
+    }
+
+    @Override
+    public List studentCouList() {
+        List studentCouList = null;
+        try {
+            String sql = "select student.*,course.*  from web.s_c,web.student,web.course where s_c.sid=student.sid and s_c.cid=course.cid; ";
+            pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            studentCouList = new ArrayList();
+
+            while (rs.next()){
+                Student student = new Student();
+                Course course = new Course();
+                student.setSid(rs.getString(1));
+                student.setSname(rs.getString(2));
+                student.setSage(rs.getString(3));
+                student.setSclass(rs.getString(4));
+                student.setSpassword(rs.getString(5));
+                course.setCid(rs.getString(6));
+                course.setCname(rs.getString(7));
+                course.setCinr(rs.getString(8));
+                course.setCredit(rs.getString(9));
+                studentCouList.add(student);
+                studentCouList.add(course);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return studentCouList;
+    }
+
+    @Override
+    public boolean delSelectCou(StudentCourse studentCourse) throws Exception {
+        boolean flag = false;
+        try {
+            String sql = "delete from web.s_c where cid=? and sid=?";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, studentCourse.getCid());
+            pstm.setString(2, studentCourse.getSid());
+            int cout = pstm.executeUpdate();
+
+            if (cout == 1){
+                flag = true;
+                pstm.close();
+            }
+        } catch (Exception e){
             throw e;
         }
         return flag;

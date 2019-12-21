@@ -2,6 +2,7 @@ package com.bgd.sky.dao;
 
 import com.bgd.sky.bean.Course;
 import com.bgd.sky.bean.Student;
+import com.bgd.sky.bean.StudentCourse;
 import com.bgd.sky.bean.User;
 import com.bgd.sky.dataBase.DBC;
 
@@ -143,6 +144,19 @@ public class UserDAOProxy implements UserDAO {
     public boolean selectCou(Student student, Course course) throws Exception {
         boolean flag;
         flag = this.dao.selectCou(student,course);
+        this.dbc.close();
+        return flag;
+    }
+
+    @Override
+    public List studentCouList() {
+        return this.dao.studentCouList();
+    }
+
+    @Override
+    public boolean delSelectCou(StudentCourse studentCourse) throws Exception {
+        boolean flag;
+        flag = this.dao.delSelectCou(studentCourse);
         this.dbc.close();
         return flag;
     }
